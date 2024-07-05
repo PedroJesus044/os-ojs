@@ -1,9 +1,7 @@
 FROM ubi7/php-73
 
 # Add application sources
-RUN wget https://github.com/pkp/ojs/archive/refs/tags/3_4_0-5.tar.gz
-RUN tar -xf 3_4_0-5.tar.gz
-RUN rsync -a ojs-3_4_0-5 .
+ADD ojs-3_4_0-5 .
 USER root
 #RUN chown apache:apache -R .
 RUN chgrp -R 0 . && \
@@ -24,6 +22,5 @@ RUN chgrp -R 0 . && \
 # the approriate places.
 # This can obviously be done differently, and in that case, the final CMD
 # should be set to "CMD httpd -D FOREGROUND" instead.
-ENV TRACK_ERRORS=ON
 EXPOSE 8080
 CMD /usr/libexec/s2i/run
