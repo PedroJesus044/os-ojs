@@ -3,9 +3,11 @@ FROM rhel8/php-80
 # Add application sources
 ADD ojs-3_4_0-5 .
 USER root
-#RUN chown apache:apache -R .
+
 RUN chgrp -R 0 . && \
     chmod -R g=u .
+
+RUN chown apache:apache -R .
 
 # Install the dependencies
 #RUN TEMPFILE=$(mktemp) && \
