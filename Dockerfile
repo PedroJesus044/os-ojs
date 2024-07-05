@@ -1,7 +1,7 @@
 FROM rhel8/php-80
 
 # Add application sources
-ADD ojs-3_4_0-5 .
+ADD ojs-3.4.0-5 .
 USER root
 
 RUN chgrp -R 0 . && \
