@@ -7,8 +7,6 @@ USER root
 RUN chgrp -R 0 . && \
     chmod -R g=u .
 
-RUN chown apache:apache -R .
-
 # Install the dependencies
 #RUN TEMPFILE=$(mktemp) && \
 #    curl -o "$TEMPFILE" "https://getcomposer.org/installer" && \
