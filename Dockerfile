@@ -4,15 +4,13 @@ FROM rhel8/php-80
 ADD ojs-3.4.0-5 .
 USER root
 
-RUN chgrp -R 0 . && \
-    chmod -R g=u .
-RUN chown apache:apache -R .
-
 RUN mkdir -p /opt/app-root/files
 
-RUN chgrp -R 0 /opt/app-root/files && \
+RUN chgrp -R 0 . && \
     chmod -R g=u .
-RUN chown apache:apache -R /opt/app-root/files
+
+#RUN chown apache:apache -R .
+#RUN chown apache:apache -R /opt/app-root/files
 
 # Install the dependencies
 #RUN TEMPFILE=$(mktemp) && \
