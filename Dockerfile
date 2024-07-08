@@ -9,6 +9,9 @@ RUN mkdir -p /opt/app-root/files
 RUN chgrp -R 0 . && \
     chmod -R g=u .
 
+RUN chgrp -R 0 /opt/app-root/files && \
+    chmod -R g=u /opt/app-root/files
+
 #RUN chown apache:apache -R .
 #RUN chown apache:apache -R /opt/app-root/files
 
