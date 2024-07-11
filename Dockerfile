@@ -2,7 +2,6 @@ FROM rhel8/php-80
 
 # Add application sources
 ADD ojs-3.4.0-5 .
-USER root
 
 RUN mkdir -p /opt/app-root/files
 
@@ -11,6 +10,8 @@ RUN chgrp -R 0 . && \
 
 RUN chgrp -R 0 /opt/app-root/files && \
     chmod -R g=u /opt/app-root/files
+
+USER 1001
 
 #RUN chown apache:apache -R .
 #RUN chown apache:apache -R /opt/app-root/files
